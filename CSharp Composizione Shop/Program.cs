@@ -15,9 +15,8 @@ Shop negozio = new Shop("Di tutto e di più", "Palermo", "Via Roma", 89, "Alimen
 // DEFINISCO I PRODOTTI CHE IL MIO SHOP TRATTA
 itemShop insalata = new itemShop("Insalata");
 itemShop pollo = new itemShop("Pollo");
-Water acqua = new Water("Acqua", "Levissima", 1.5f);
+Water acqua = new Water("Acqua", "Levissima");
 
-acqua.SetCapacity(2);
 // DEFINISCO LE CATEGOIRE PER I MIEI PRODOTTO
 Category verdura = new Category("Verdura", "Insalata verde");
 Category carne = new Category("Carne", "Pollo allevato a terra");
@@ -34,4 +33,5 @@ negozio.addItem(acqua);
 
 
 Console.WriteLine(negozio.InfoShop());
-Console.WriteLine(acqua.GetCapacity());
+acqua.SetRefill(0.5f);
+acqua.Bevi(0.5f);

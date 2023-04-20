@@ -9,22 +9,22 @@ namespace CSharp_Composizione_Shop
     // SOTTOCLASSE
     public class Water : itemShop
     {
-        private string waterName;
+        private string ph;
         private float capacity;
         private float MaxCapacity = 1.5f;
 
         // COSTRUTTORE
-        public Water(string name, string waterName, float capacity) : base(name)
+        public Water(string name, string pH) : base(name)
         {
-            this.waterName = waterName;
-            this.capacity = capacity;
+            this.ph = pH;
+            
         }
 
         // GETTERS
 
         public string GetWaterName()
         {
-            return this.waterName;
+            return this.ph;
         }
 
         public float GetCapacity()
@@ -34,7 +34,7 @@ namespace CSharp_Composizione_Shop
 
         //SETTERS
 
-        public void SetCapacity(float capacity)
+        public void SetRefill(float capacity)
         {
            
             if (capacity > MaxCapacity)
@@ -42,11 +42,24 @@ namespace CSharp_Composizione_Shop
                 Console.WriteLine("La capacità massima della bottiglia è di 1,5L");
             } else
             {
-                this.capacity = capacity;
+                this.MaxCapacity = capacity;
             }
         }
         // METODI
 
-        
+        public void Bevi(float LitriDaBere)
+        {
+            double acquaRimanente = MaxCapacity - LitriDaBere;
+            Console.WriteLine("Hai bevuto " + LitriDaBere + "L");
+            Console.WriteLine("Ti rimane da bere: " +  acquaRimanente + "L");
+           
+        }
+        public override string GetItemString()
+        {
+            string rapprString = "Nome Prodotto : " + this.GetName() + "\n";
+            rapprString += "\t Marca: " + this.GetWaterName() + "\n";
+            rapprString+= "\t Capacità massima: " + this.GetCapacity() + "\n";
+            return rapprString;
+        }
     }
 }

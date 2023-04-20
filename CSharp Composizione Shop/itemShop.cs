@@ -31,7 +31,7 @@ namespace CSharp_Composizione_Shop
         }
         
 
-        public string GetItemString()
+        public virtual string GetItemString()
         {
             string rapprString = "Nome prodotto: " + this.name + "\n";
             rapprString += "\t Categorie prodotto: \n";
